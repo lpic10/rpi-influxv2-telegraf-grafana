@@ -17,3 +17,4 @@ Using telegraf + grafana cloud + influxcloud v2
 1. Import grafana dashboard
 
 
+![Dashboard Screenshot](screenshot.png)
