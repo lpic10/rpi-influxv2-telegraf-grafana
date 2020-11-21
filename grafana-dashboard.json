@@ -1,4 +1,40 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_INFLUXDB",
+      "label": "InfluxDB",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "influxdb",
+      "pluginName": "InfluxDB"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.3.3"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "influxdb",
+      "name": "InfluxDB",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,13 +51,13 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "id": 1,
-  "iteration": 1605962843211,
+  "id": null,
+  "iteration": 1605966641750,
   "links": [],
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -34,7 +70,7 @@
       "type": "row"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -124,7 +160,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -209,7 +245,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -294,7 +330,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -381,7 +417,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -479,7 +515,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -576,7 +612,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -666,7 +702,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -756,7 +792,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -846,7 +882,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -936,7 +972,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1026,7 +1062,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1117,7 +1153,7 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1130,7 +1166,7 @@
       "type": "row"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1213,7 +1249,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1296,7 +1332,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1379,7 +1415,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1462,7 +1498,7 @@
       "type": "stat"
     },
     {
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1548,7 +1584,7 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1565,7 +1601,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -1752,7 +1788,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -1877,7 +1913,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
@@ -2034,7 +2070,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -2186,7 +2222,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -2244,13 +2280,6 @@
       "points": false,
       "renderer": "flot",
       "repeat": "disk",
-      "scopedVars": {
-        "disk": {
-          "selected": false,
-          "text": "mmcblk0p1",
-          "value": "mmcblk0p1"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -2340,317 +2369,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 42
-      },
-      "hiddenSeries": false,
-      "id": 88,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeatIteration": 1605962843211,
-      "repeatPanelId": 4,
-      "scopedVars": {
-        "disk": {
-          "selected": false,
-          "text": "mmcblk0p2",
-          "value": "mmcblk0p2"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"disk\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"${disk}\")\r\n  |> yield(name: \"mean\")",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Disk usage",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 1,
-          "format": "percent",
-          "label": "Disk usage",
-          "logBase": 1,
-          "max": "101",
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 42
-      },
-      "hiddenSeries": false,
-      "id": 89,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeatIteration": 1605962843211,
-      "repeatPanelId": 4,
-      "scopedVars": {
-        "disk": {
-          "selected": false,
-          "text": "sda1",
-          "value": "sda1"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"disk\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"${disk}\")\r\n  |> yield(name: \"mean\")",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Disk usage",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 1,
-          "format": "percent",
-          "label": "Disk usage",
-          "logBase": 1,
-          "max": "101",
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -2778,7 +2497,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -2906,7 +2625,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -3052,7 +2771,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "decimals": 0,
       "description": "",
       "fieldConfig": {
@@ -3207,7 +2926,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "decimals": 0,
       "description": "",
       "fieldConfig": {
@@ -3360,7 +3079,7 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3377,7 +3096,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3529,7 +3248,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3681,7 +3400,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3833,7 +3552,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3986,7 +3705,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -4138,7 +3857,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -4288,7 +4007,7 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4305,7 +4024,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -4456,12 +4175,8 @@
     "list": [
       {
         "allValue": null,
-        "current": {
-          "selected": false,
-          "text": "osmc",
-          "value": "osmc"
-        },
-        "datasource": "InfluxDB",
+        "current": {},
+        "datasource": "${DS_INFLUXDB}",
         "definition": "",
         "error": null,
         "hide": 0,
@@ -4469,15 +4184,9 @@
         "label": "Hostname",
         "multi": false,
         "name": "host",
-        "options": [
-          {
-            "selected": false,
-            "text": "osmc",
-            "value": "osmc"
-          }
-        ],
+        "options": [],
         "query": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"host\",\r\n    predicate: (r) => true,\r\n    start: -1d\r\n)",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -4489,12 +4198,8 @@
       },
       {
         "allValue": "",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": "InfluxDB",
+        "current": {},
+        "datasource": "${DS_INFLUXDB}",
         "definition": "",
         "error": null,
         "hide": 0,
@@ -4516,12 +4221,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": "InfluxDB",
+        "current": {},
+        "datasource": "${DS_INFLUXDB}",
         "definition": "",
         "error": null,
         "hide": 0,
