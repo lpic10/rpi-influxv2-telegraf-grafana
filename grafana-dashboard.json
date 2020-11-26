@@ -52,7 +52,7 @@
   "gnetId": null,
   "graphTooltip": 2,
   "id": null,
-  "iteration": 1606233825161,
+  "iteration": 1606393840315,
   "links": [],
   "panels": [
     {
@@ -1660,6 +1660,7 @@
         "alignAsTable": true,
         "avg": true,
         "current": true,
+        "hideZero": true,
         "max": true,
         "min": true,
         "rightSide": true,
@@ -1681,8 +1682,19 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:334",
           "alias": "/usage_idle/",
           "fill": 0
+        },
+        {
+          "$$hashKey": "object:350",
+          "alias": "/user/",
+          "color": "#1F60C4"
+        },
+        {
+          "$$hashKey": "object:358",
+          "alias": "/system/",
+          "color": "#C4162A"
         }
       ],
       "spaceLength": 10,
@@ -2155,9 +2167,10 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "/total/",
+          "$$hashKey": "object:300",
+          "alias": "/free/",
           "fill": 0,
-          "zindex": -1
+          "zindex": 3
         }
       ],
       "spaceLength": 10,
@@ -2409,7 +2422,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 60
+        "y": 51
       },
       "hiddenSeries": false,
       "id": 84,
@@ -2538,7 +2551,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 60
+        "y": 51
       },
       "hiddenSeries": false,
       "id": 87,
@@ -2685,7 +2698,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 69
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 7,
@@ -2824,7 +2837,7 @@
               }
             ]
           },
-          "unit": "none"
+          "unit": "short"
         },
         "overrides": []
       },
@@ -2834,7 +2847,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 69
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 26,
@@ -2889,7 +2902,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"swap\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"in\" or r[\"_field\"] == \"out\")\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"swap\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"in\" or r[\"_field\"] == \"out\")\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> yield(name: \"mean\")",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2930,7 +2943,7 @@
       "yaxes": [
         {
           "decimals": 0,
-          "format": "none",
+          "format": "short",
           "label": "swap pages",
           "logBase": 1,
           "max": null,
@@ -2987,7 +3000,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 78
+        "y": 69
       },
       "hiddenSeries": false,
       "id": 90,
@@ -3132,7 +3145,7 @@
               }
             ]
           },
-          "unit": "none"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -3142,7 +3155,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 78
+        "y": 69
       },
       "hiddenSeries": false,
       "id": 25,
@@ -3172,9 +3185,21 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:252",
           "alias": "/total/",
           "fill": 0,
           "stack": false
+        },
+        {
+          "$$hashKey": "object:261",
+          "alias": "/free/",
+          "fill": 1,
+          "zindex": 1
+        },
+        {
+          "$$hashKey": "object:272",
+          "alias": "/used/",
+          "fill": 4
         }
       ],
       "spaceLength": 10,
@@ -3239,7 +3264,7 @@
       "yaxes": [
         {
           "decimals": 0,
-          "format": "none",
+          "format": "bytes",
           "label": "swap pages",
           "logBase": 1,
           "max": null,
@@ -3268,7 +3293,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 87
+        "y": 78
       },
       "id": 19,
       "panels": [],
@@ -3312,7 +3337,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 88
+        "y": 79
       },
       "hiddenSeries": false,
       "id": 9,
@@ -3466,7 +3491,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 88
+        "y": 79
       },
       "hiddenSeries": false,
       "id": 10,
@@ -3619,7 +3644,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 97
+        "y": 88
       },
       "hiddenSeries": false,
       "id": 13,
@@ -3772,7 +3797,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 97
+        "y": 88
       },
       "hiddenSeries": false,
       "id": 22,
@@ -3926,7 +3951,7 @@
         "h": 13,
         "w": 12,
         "x": 0,
-        "y": 108
+        "y": 99
       },
       "hiddenSeries": false,
       "id": 11,
@@ -4079,7 +4104,7 @@
         "h": 13,
         "w": 12,
         "x": 12,
-        "y": 108
+        "y": 99
       },
       "hiddenSeries": false,
       "id": 12,
@@ -4203,7 +4228,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 121
+        "y": 112
       },
       "id": 41,
       "panels": [],
@@ -4246,7 +4271,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 122
+        "y": 113
       },
       "hiddenSeries": false,
       "id": 43,
@@ -4437,12 +4462,12 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Home",
   "uid": "oi0VwYoMz",
-  "version": 62
+  "version": 63
 }
