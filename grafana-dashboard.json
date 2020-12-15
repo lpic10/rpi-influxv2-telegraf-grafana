@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.3.3"
+      "version": "7.3.6"
     },
     {
       "type": "panel",
@@ -52,7 +52,7 @@
   "gnetId": null,
   "graphTooltip": 2,
   "id": null,
-  "iteration": 1606233825161,
+  "iteration": 1608063364355,
   "links": [],
   "panels": [
     {
@@ -101,8 +101,7 @@
         "y": 1
       },
       "id": 35,
-      "interval": "",
-      "maxDataPoints": 25000,
+      "interval": "30s",
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -117,7 +116,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -136,7 +135,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"load5\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"load5\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -188,7 +187,6 @@
         "y": 1
       },
       "id": 33,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -203,7 +201,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -222,7 +220,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"uptime\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\r\n  |> yield(name: \"last\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"uptime\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -275,7 +273,6 @@
       },
       "id": 44,
       "interval": "",
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -290,7 +287,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -309,7 +306,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"unbound\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"time_up\")\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"unbound\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"time_up\")\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -363,7 +360,6 @@
         "y": 1
       },
       "id": 32,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -378,7 +374,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -397,7 +393,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"n_users\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\r\n  |> yield(name: \"last\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"n_users\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -462,7 +458,6 @@
         "y": 1
       },
       "id": 47,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -477,7 +472,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -496,7 +491,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"temp\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temp\")\r\n  |> yield(name: \"last\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"temp\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temp\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -560,7 +555,6 @@
         "y": 1
       },
       "id": 34,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -575,7 +569,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -594,7 +588,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"gpu_temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n  |> yield(name: \"last\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"gpu_temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -651,8 +645,7 @@
         "y": 5
       },
       "id": 63,
-      "interval": "1h",
-      "maxDataPoints": 25000,
+      "interval": "",
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -667,7 +660,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -686,7 +679,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"download_bandwidth\")\r\n  |> map(fn:(r) => ({ r with _value: int(v: r._value) }))\r\n  |> map(fn: (r) => ({r with _value: r._value * 8 })  )\r\n \r\n  ",
+          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"download_bandwidth\")\r\n  |> map(fn:(r) => ({ r with _value: int(v: r._value) }))\r\n  |> map(fn: (r) => ({r with _value: r._value * 8 })  )\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)\r\n \r\n  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -743,7 +736,6 @@
         "y": 5
       },
       "id": 64,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -758,7 +750,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -777,7 +769,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"upload_bandwidth\")\r\n  |> map(fn:(r) => ({ r with _value: int(v: r._value) }))\r\n  |> map(fn: (r) => ({r with _value: r._value * 8 })  )\r\n \r\n  ",
+          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"upload_bandwidth\")\r\n  |> map(fn:(r) => ({ r with _value: int(v: r._value) }))\r\n  |> map(fn: (r) => ({r with _value: r._value * 8 })  )\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)  \r\n \r\n  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -834,8 +826,7 @@
         "y": 5
       },
       "id": 65,
-      "interval": "1m",
-      "maxDataPoints": 25000,
+      "interval": "",
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -850,7 +841,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -869,7 +860,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ping_latency\") \r\n  ",
+          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ping_latency\") \r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -940,7 +931,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -959,7 +950,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ping_jitter\")\r\n\r\n \r\n  ",
+          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ping_jitter\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)\r\n \r\n  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1030,7 +1021,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -1049,7 +1040,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"packet_loss\")\r\n\r\n \r\n  ",
+          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"packet_loss\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)  \r\n\r\n \r\n  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1106,7 +1097,6 @@
         "y": 5
       },
       "id": 48,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1121,7 +1111,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -1140,7 +1130,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"tcp_activeopens\")\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> yield(name: \"nonnegative derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"tcp_activeopens\")\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1204,7 +1194,6 @@
         "y": 10
       },
       "id": 54,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1219,7 +1208,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -1238,7 +1227,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"domains_being_blocked\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"domains_being_blocked\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1303,7 +1292,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -1322,7 +1311,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"unique_clients\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"unique_clients\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1372,7 +1361,6 @@
         "y": 10
       },
       "id": 57,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1387,7 +1375,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -1406,7 +1394,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ads_blocked_today\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ads_blocked_today\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1456,7 +1444,6 @@
         "y": 10
       },
       "id": 56,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1471,7 +1458,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -1490,7 +1477,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"dns_queries_today\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"dns_queries_today\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)\r\n  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1542,7 +1529,6 @@
         "y": 10
       },
       "id": 58,
-      "maxDataPoints": 25000,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1557,7 +1543,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "targets": [
         {
           "groupBy": [
@@ -1576,7 +1562,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ads_percentage_today\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pihole_stats\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"ads_percentage_today\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: true)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1655,11 +1641,12 @@
       },
       "hiddenSeries": false,
       "id": 2,
-      "interval": "30s",
+      "interval": "",
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": true,
+        "hideZero": true,
         "max": true,
         "min": true,
         "rightSide": true,
@@ -1669,20 +1656,30 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": true,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:334",
           "alias": "/usage_idle/",
           "fill": 0
+        },
+        {
+          "$$hashKey": "object:350",
+          "alias": "/user/",
+          "color": "#1F60C4"
+        },
+        {
+          "$$hashKey": "object:358",
+          "alias": "/system/",
+          "color": "#C4162A"
         }
       ],
       "spaceLength": 10,
@@ -1707,7 +1704,7 @@
           "hide": false,
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"cpu\")\r\n      |> filter(fn: (r) =>\r\n    r[\"cpu\"] == \"cpu-total\" and\r\n    r[\"host\"] == \"${host}\")\r\n  |> filter(fn: (r) =>\r\n        r._field != \"usage_idle\"\r\n  )",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) => r._measurement == \"cpu\")\r\n  |> filter(fn: (r) => r[\"cpu\"] == \"cpu-total\" and r[\"host\"] == \"${host}\")\r\n  |> filter(fn: (r) => r._field != \"usage_idle\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1743,7 +1740,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) =>\r\n    r._measurement == \"cpu\" and\r\n    r[\"cpu\"] == \"cpu-total\" and\r\n    r._field == \"usage_idle\" and\r\n    r[\"host\"] == \"${host}\"\r\n  )",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop:v.timeRangeStop)\r\n  |> filter(fn: (r) => r._measurement == \"cpu\" and r[\"cpu\"] == \"cpu-total\" and r._field == \"usage_idle\" and r[\"host\"] == \"${host}\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)      ",
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -1783,6 +1780,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:847",
           "decimals": 1,
           "format": "percent",
           "label": null,
@@ -1792,6 +1790,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:848",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1839,13 +1838,12 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 150000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1871,7 +1869,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"load1\" or r[\"_field\"] == \"load15\" or r[\"_field\"] == \"load5\")\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"load1\" or r[\"_field\"] == \"load15\" or r[\"_field\"] == \"load5\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1911,6 +1909,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:208",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1919,6 +1918,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:209",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1987,18 +1987,18 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 25000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:295",
           "alias": "/thread/",
           "dashes": true,
           "hiddenSeries": true,
@@ -2027,7 +2027,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"processes\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"processes\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2067,6 +2067,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:308",
           "decimals": 0,
           "format": "none",
           "label": "processes",
@@ -2076,6 +2077,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:309",
           "decimals": 0,
           "format": "short",
           "label": null,
@@ -2143,21 +2145,21 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "/total/",
+          "$$hashKey": "object:300",
+          "alias": "/free/",
           "fill": 0,
-          "zindex": -1
+          "zindex": 3
         }
       ],
       "spaceLength": 10,
@@ -2181,7 +2183,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"mem\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"used\" or r[\"_field\"] == \"shared\" or r[\"_field\"] == \"cached\" or r[\"_field\"] == \"buffered\" or r[\"_field\"] == \"mapped\" or r[\"_field\"] == \"free\")\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"mem\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"used\" or r[\"_field\"] == \"shared\" or r[\"_field\"] == \"cached\" or r[\"_field\"] == \"buffered\" or r[\"_field\"] == \"mapped\" or r[\"_field\"] == \"free\")\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2221,6 +2223,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:405",
           "decimals": 1,
           "format": "bytes",
           "label": null,
@@ -2230,6 +2233,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:406",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2296,13 +2300,12 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2329,7 +2332,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"disk\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"${disk}\")\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"disk\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"${disk}\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2369,6 +2372,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:502",
           "decimals": 1,
           "format": "percent",
           "label": "Disk usage",
@@ -2378,6 +2382,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:503",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2409,7 +2414,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 60
+        "y": 51
       },
       "hiddenSeries": false,
       "id": 84,
@@ -2427,13 +2432,12 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2459,7 +2463,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soft_interrupts\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"count\")\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> group(columns:[\"irq\"])\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soft_interrupts\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"count\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> group(columns:[\"irq\"])\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2499,6 +2503,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:605",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2507,6 +2512,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:606",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2538,7 +2544,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 60
+        "y": 51
       },
       "hiddenSeries": false,
       "id": 87,
@@ -2556,13 +2562,12 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2588,7 +2593,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"interrupts\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"count\")\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> group(columns:[\"irq\"])\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"interrupts\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"count\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> group(columns:[\"irq\"])\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2628,6 +2633,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:694",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2636,6 +2642,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:695",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2685,7 +2692,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 69
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 7,
@@ -2702,13 +2709,12 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2734,7 +2740,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"diskio\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"io_time\")\r\n  |> filter(fn: (r) => r[\"name\"] == \"mmcblk0\" or r[\"name\"] == \"sda\")\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> yield(name: \"derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"diskio\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"io_time\")\r\n  |> filter(fn: (r) => r[\"name\"] == \"mmcblk0\" or r[\"name\"] == \"sda\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2774,6 +2780,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:791",
           "decimals": 1,
           "format": "µs",
           "label": "IO time",
@@ -2783,6 +2790,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:792",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2824,7 +2832,7 @@
               }
             ]
           },
-          "unit": "none"
+          "unit": "short"
         },
         "overrides": []
       },
@@ -2834,7 +2842,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 69
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 26,
@@ -2852,18 +2860,18 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:965",
           "alias": "/out/",
           "transform": "negative-Y"
         }
@@ -2889,7 +2897,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"swap\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"in\" or r[\"_field\"] == \"out\")\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"swap\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"in\" or r[\"_field\"] == \"out\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -2929,8 +2937,9 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:972",
           "decimals": 0,
-          "format": "none",
+          "format": "short",
           "label": "swap pages",
           "logBase": 1,
           "max": null,
@@ -2938,6 +2947,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:973",
           "decimals": 0,
           "format": "short",
           "label": null,
@@ -2987,11 +2997,11 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 78
+        "y": 69
       },
       "hiddenSeries": false,
       "id": 90,
-      "interval": "1h",
+      "interval": "",
       "legend": {
         "avg": false,
         "current": false,
@@ -3003,13 +3013,12 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 25000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3041,7 +3050,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"download_bandwidth\" or r[\"_field\"] == \"upload_bandwidth\" )\r\n  |> map(fn:(r) => ({ r with _value: int(v: r._value) }))\r\n  |> map(fn: (r) => ({r with _value: r._value * 8 })  )\r\n \r\n  ",
+          "query": "import \"experimental\"\r\nnewStart = experimental.addDuration(\r\n  d: -6h,\r\n  to: v.timeRangeStart,\r\n)\r\n\r\nfrom(bucket: v.defaultBucket)\r\n  |> range(start: newStart, stop: v.timeRangeStop )\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"speedtest\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"download_bandwidth\" or r[\"_field\"] == \"upload_bandwidth\" )\r\n  |> map(fn:(r) => ({ r with _value: int(v: r._value) }))\r\n  |> map(fn: (r) => ({r with _value: r._value * 8 })  )\r\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)  \r\n \r\n  ",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -3132,7 +3141,7 @@
               }
             ]
           },
-          "unit": "none"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -3142,7 +3151,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 78
+        "y": 69
       },
       "hiddenSeries": false,
       "id": 25,
@@ -3160,21 +3169,32 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:252",
           "alias": "/total/",
           "fill": 0,
           "stack": false
+        },
+        {
+          "$$hashKey": "object:261",
+          "alias": "/free/",
+          "fill": 1,
+          "zindex": 1
+        },
+        {
+          "$$hashKey": "object:272",
+          "alias": "/used/",
+          "fill": 4
         }
       ],
       "spaceLength": 10,
@@ -3198,7 +3218,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"swap\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"total\" or r[\"_field\"] == \"used\" or r[\"_field\"] == \"free\")\r\n  |> yield(name: \"mean\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"swap\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"total\" or r[\"_field\"] == \"used\" or r[\"_field\"] == \"free\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -3238,8 +3258,9 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1182",
           "decimals": 0,
-          "format": "none",
+          "format": "bytes",
           "label": "swap pages",
           "logBase": 1,
           "max": null,
@@ -3247,6 +3268,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1183",
           "decimals": 0,
           "format": "short",
           "label": null,
@@ -3268,7 +3290,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 87
+        "y": 78
       },
       "id": 19,
       "panels": [],
@@ -3277,7 +3299,7 @@
     },
     {
       "aliasColors": {},
-      "bars": true,
+      "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_INFLUXDB}",
@@ -3307,16 +3329,16 @@
         "overrides": []
       },
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 1,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 88
+        "y": 79
       },
       "hiddenSeries": false,
       "id": 9,
-      "interval": "",
+      "interval": "30s",
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -3328,20 +3350,20 @@
         "total": false,
         "values": true
       },
-      "lines": false,
+      "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 25000,
-      "nullPointMode": "null",
+      "nullPointMode": "null as zero",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:376",
           "alias": "/sent/",
           "transform": "negative-Y"
         }
@@ -3367,8 +3389,44 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"bytes_recv\" or r[\"_field\"] == \"bytes_sent\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"eth0\")\r\n  |> derivative(unit: 1s, nonNegative: true)\r\n  |> yield(name: \"nonnegative derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"bytes_recv\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"eth0\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)\r\n  ",
           "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"bytes_sent\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"eth0\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "refId": "B",
           "resultFormat": "time_series",
           "select": [
             [
@@ -3397,6 +3455,7 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transformations": [],
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -3407,6 +3466,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:279",
           "decimals": 1,
           "format": "bytes",
           "label": "bytes",
@@ -3416,6 +3476,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:280",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -3431,7 +3492,7 @@
     },
     {
       "aliasColors": {},
-      "bars": true,
+      "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_INFLUXDB}",
@@ -3461,12 +3522,12 @@
         "overrides": []
       },
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 1,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 88
+        "y": 79
       },
       "hiddenSeries": false,
       "id": 10,
@@ -3481,20 +3542,20 @@
         "total": false,
         "values": true
       },
-      "lines": false,
+      "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:1276",
           "alias": "/sent/",
           "transform": "negative-Y"
         }
@@ -3520,7 +3581,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"bytes_recv\" or r[\"_field\"] == \"bytes_sent\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"tun0\")\r\n  |> derivative(unit: 1s, nonNegative: true)\r\n  |> yield(name: \"nonnegative derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"bytes_recv\" or r[\"_field\"] == \"bytes_sent\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"tun0\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -3560,6 +3621,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1283",
           "decimals": 1,
           "format": "bytes",
           "label": "bytes",
@@ -3569,12 +3631,13 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1284",
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -3584,7 +3647,7 @@
     },
     {
       "aliasColors": {},
-      "bars": true,
+      "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_INFLUXDB}",
@@ -3614,12 +3677,12 @@
         "overrides": []
       },
       "fill": 1,
-      "fillGradient": 0,
+      "fillGradient": 1,
       "gridPos": {
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 97
+        "y": 88
       },
       "hiddenSeries": false,
       "id": 13,
@@ -3634,20 +3697,20 @@
         "total": false,
         "values": true
       },
-      "lines": false,
+      "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:1370",
           "alias": "/sent/",
           "transform": "negative-Y"
         }
@@ -3673,7 +3736,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"packets_recv\" or r[\"_field\"] == \"packets_sent\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"eth0\")\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> yield(name: \"nonnegative derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"packets_recv\" or r[\"_field\"] == \"packets_sent\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"eth0\")\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -3713,6 +3776,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1377",
           "decimals": 0,
           "format": "short",
           "label": "packets",
@@ -3722,6 +3786,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1378",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -3772,7 +3837,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 97
+        "y": 88
       },
       "hiddenSeries": false,
       "id": 22,
@@ -3790,18 +3855,18 @@
       },
       "lines": false,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:1467",
           "alias": "/out/",
           "transform": "negative-Y"
         }
@@ -3827,7 +3892,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /^udp_.*/)\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> yield(name: \"nonnegative derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /^udp_.*/)\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -3867,6 +3932,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1474",
           "decimals": 1,
           "format": "none",
           "label": "packets",
@@ -3876,6 +3942,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1475",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -3926,7 +3993,7 @@
         "h": 13,
         "w": 12,
         "x": 0,
-        "y": 108
+        "y": 99
       },
       "hiddenSeries": false,
       "id": 11,
@@ -3943,18 +4010,18 @@
       },
       "lines": false,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:1741",
           "alias": "/out/",
           "transform": "negative-Y"
         }
@@ -3980,7 +4047,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"err_in\" or r[\"_field\"] == \"err_out\" or r[\"_field\"] == \"drop_out\" or r[\"_field\"] == \"drop_in\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"eth0\")  \r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> yield(name: \"nonnegative derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"err_in\" or r[\"_field\"] == \"err_out\" or r[\"_field\"] == \"drop_out\" or r[\"_field\"] == \"drop_in\")\r\n  |> filter(fn: (r) => r[\"interface\"] == \"eth0\")  \r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -4020,6 +4087,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1748",
           "decimals": 1,
           "format": "none",
           "label": "packets",
@@ -4029,6 +4097,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1749",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -4079,10 +4148,11 @@
         "h": 13,
         "w": 12,
         "x": 12,
-        "y": 108
+        "y": 99
       },
       "hiddenSeries": false,
       "id": 12,
+      "interval": "",
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -4097,18 +4167,18 @@
       },
       "lines": false,
       "linewidth": 1,
-      "maxDataPoints": 50000,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:1832",
           "alias": "/out/",
           "transform": "negative-Y"
         }
@@ -4134,7 +4204,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /.*icmp_.*/)\r\n  |> filter(fn: (r) => r[\"_field\"] !~ /.*msg.*/)\r\n  |> derivative(unit: 10s, nonNegative: true)\r\n  |> yield(name: \"nonnegative derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"net\")\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /.*icmp_.*/)\r\n  |> filter(fn: (r) => r[\"_field\"] !~ /.*msg.*/)\r\n  |> derivative(unit: 30s, nonNegative: true)\r\n  |> aggregateWindow(every:  v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -4174,6 +4244,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1839",
           "decimals": 1,
           "format": "none",
           "label": "packets",
@@ -4183,6 +4254,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1840",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -4203,7 +4275,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 121
+        "y": 112
       },
       "id": 41,
       "panels": [],
@@ -4246,7 +4318,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 122
+        "y": 113
       },
       "hiddenSeries": false,
       "id": 43,
@@ -4264,13 +4336,12 @@
       },
       "lines": true,
       "linewidth": 1,
-      "maxDataPoints": 50000,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.3.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4296,7 +4367,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"unbound\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"total_num_cachehits\" or r[\"_field\"] == \"total_num_cachemiss\" or r[\"_field\"] == \"total_num_prefetch\" or r[\"_field\"] == \"total_num_queries\" or r[\"_field\"] == \"total_num_queries_ip_ratelimited\" or r[\"_field\"] == \"total_num_recursivereplies\" or r[\"_field\"] == \"total_num_zero_ttl\")\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> derivative(unit: 10s, nonNegative: false)\r\n  |> yield(name: \"derivative\")",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"unbound\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"total_num_cachehits\" or r[\"_field\"] == \"total_num_cachemiss\" or r[\"_field\"] == \"total_num_prefetch\" or r[\"_field\"] == \"total_num_queries\" or r[\"_field\"] == \"total_num_queries_ip_ratelimited\" or r[\"_field\"] == \"total_num_recursivereplies\" or r[\"_field\"] == \"total_num_zero_ttl\")\r\n  |> filter(fn: (r) => r[\"host\"] == \"${host}\")\r\n  |> derivative(unit: 30s, nonNegative: false)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -4336,6 +4407,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:2014",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -4344,6 +4416,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:2015",
           "decimals": null,
           "format": "short",
           "label": null,
@@ -4437,12 +4510,12 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Home",
   "uid": "oi0VwYoMz",
-  "version": 62
+  "version": 71
 }
